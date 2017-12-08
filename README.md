@@ -11,11 +11,12 @@ the major features before investing or interacting with these contracts:
   - maximum amount of tokens distributed during ICO is unlimited to 
     allow broad participation.
   - dev team is able to stop ICO at any time;
-  - you can not transfer VMT tokens during ICO sale;
+  - you cannot transfer VMT tokens during ICO sale;
   - you will be able to exchange/convert VPT tokens to Vectavi VMT 
     tokens after the Vectavi ICO
-  - no refund or moneyback is available during ICO sale;
-  - dev team is able to withdraw Ether at any time during or after ICO
+  - when ICO sale ends without meeting goal, you can claim a refund;
+    - dev team must depositEther for migrated presale tokens
+  - dev team is able to withdraw Ether after ICO when goal is met;
     - those funds are moved to escrow's address
 
 
