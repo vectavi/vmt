@@ -1,0 +1,568 @@
+{
+  "contractName": "RefundVaultMock",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "refundVault",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "closeVault",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "wallet",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "state",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "deposited",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "investor",
+          "type": "address"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "investor",
+          "type": "address"
+        }
+      ],
+      "name": "refund",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_escrow",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "Closed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "RefundsEnabled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "beneficiary",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "weiAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Refunded",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b60405160208061047f833981016040528080519150819050600160a060020a038116151561003c57600080fd5b60028054600160a060020a031916600160a060020a03831617905560008054819060ff1916600182021790555050506104058061007a6000396000f300606060405236156100805763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166311777af7811461008557806318976fa21461009a578063521eb273146100ad578063c19d93fb146100dc578063cb13cddb14610113578063f340fa0114610144578063fa89401a14610158575b600080fd5b341561009057600080fd5b610098610177565b005b34156100a557600080fd5b610098610181565b34156100b857600080fd5b6100c0610189565b604051600160a060020a03909116815260200160405180910390f35b34156100e757600080fd5b6100ef610198565b604051808260028111156100ff57fe5b60ff16815260200191505060405180910390f35b341561011e57600080fd5b610132600160a060020a03600435166101a1565b60405190815260200160405180910390f35b610098600160a060020a03600435166101b3565b341561016357600080fd5b610098600160a060020a0360043516610214565b61017f6102de565b565b61017f610335565b600254600160a060020a031681565b60005460ff1681565b60016020526000908152604090205481565b6000805460ff1660028111156101c557fe5b146101cf57600080fd5b600160a060020a0381166000908152600160205260409020546101f8903463ffffffff6103c316565b600160a060020a03909116600090815260016020526040902055565b6000600160005460ff16600281111561022957fe5b1461023357600080fd5b50600160a060020a03811660009081526001602052604081205490811161025957600080fd5b600160a060020a0382166000818152600160205260408082209190915582156108fc0290839051600060405180830381858888f19350505050151561029d57600080fd5b81600160a060020a03167fd7dee2702d63ad89917b6a4da9981c90c4d24f8c2bdfd64c604ecae57d8d06518260405190815260200160405180910390a25050565b6000805460ff1660028111156102f057fe5b146102fa57600080fd5b6000805460ff191660011790557f599d8e5a83cffb867d051598c4d70e805d59802d8081c1c7d6dffc5b6aca2b8960405160405180910390a1565b6000805460ff16600281111561034757fe5b1461035157600080fd5b6000805460ff191660021790557f1cdde67b72a90f19919ac732a437ac2f7a10fc128d28c2a6e525d89ce5cd9d3a60405160405180910390a1600254600160a060020a039081169030163180156108fc0290604051600060405180830381858888f19350505050151561017f57600080fd5b6000828201838110156103d257fe5b93925050505600a165627a7a72305820307a02bf3c568977d432bc9677aa0e9f30b6b9ad598169f24aa36cea82fd79cb0029",
+  "deployedBytecode": "0x606060405236156100805763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166311777af7811461008557806318976fa21461009a578063521eb273146100ad578063c19d93fb146100dc578063cb13cddb14610113578063f340fa0114610144578063fa89401a14610158575b600080fd5b341561009057600080fd5b610098610177565b005b34156100a557600080fd5b610098610181565b34156100b857600080fd5b6100c0610189565b604051600160a060020a03909116815260200160405180910390f35b34156100e757600080fd5b6100ef610198565b604051808260028111156100ff57fe5b60ff16815260200191505060405180910390f35b341561011e57600080fd5b610132600160a060020a03600435166101a1565b60405190815260200160405180910390f35b610098600160a060020a03600435166101b3565b341561016357600080fd5b610098600160a060020a0360043516610214565b61017f6102de565b565b61017f610335565b600254600160a060020a031681565b60005460ff1681565b60016020526000908152604090205481565b6000805460ff1660028111156101c557fe5b146101cf57600080fd5b600160a060020a0381166000908152600160205260409020546101f8903463ffffffff6103c316565b600160a060020a03909116600090815260016020526040902055565b6000600160005460ff16600281111561022957fe5b1461023357600080fd5b50600160a060020a03811660009081526001602052604081205490811161025957600080fd5b600160a060020a0382166000818152600160205260408082209190915582156108fc0290839051600060405180830381858888f19350505050151561029d57600080fd5b81600160a060020a03167fd7dee2702d63ad89917b6a4da9981c90c4d24f8c2bdfd64c604ecae57d8d06518260405190815260200160405180910390a25050565b6000805460ff1660028111156102f057fe5b146102fa57600080fd5b6000805460ff191660011790557f599d8e5a83cffb867d051598c4d70e805d59802d8081c1c7d6dffc5b6aca2b8960405160405180910390a1565b6000805460ff16600281111561034757fe5b1461035157600080fd5b6000805460ff191660021790557f1cdde67b72a90f19919ac732a437ac2f7a10fc128d28c2a6e525d89ce5cd9d3a60405160405180910390a1600254600160a060020a039081169030163180156108fc0290604051600060405180830381858888f19350505050151561017f57600080fd5b6000828201838110156103d257fe5b93925050505600a165627a7a72305820307a02bf3c568977d432bc9677aa0e9f30b6b9ad598169f24aa36cea82fd79cb0029",
+  "sourceMap": "89:264:22:-;;;134:82;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;134:82:22;;-1:-1:-1;;;;;;1437:14:21;;;;1429:23;;;;;;1460:6;:16;;-1:-1:-1;;;;;;1460:16:21;-1:-1:-1;;;;;1460:16:21;;;;;-1:-1:-1;1484:20:21;;-1:-1:-1;;;;1484:20:21;-1:-1:-1;;1484:20:21;;;;;1376:135;134:82:22;89:264;;;;;;",
+  "deployedSourceMap": "89:264:22:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;285:66;;;;;;;;;;;;;;222:57;;;;;;;;;;;;812:21:21;;;;;;;;;;;;;;;-1:-1:-1;;;;;812:21:21;;;;;;;;;;;;;;604:18;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;685:45;;;;;;;;;;-1:-1:-1;;;;;685:45:21;;;;;;;;;;;;;;;;;;;;1730:159;;-1:-1:-1;;;;;1730:159:21;;;;;2342:290;;;;;;;;;;-1:-1:-1;;;;;2342:290:21;;;;;285:66:22;323:21;:19;:21::i;:::-;285:66::o;222:57::-;259:13;:11;:13::i;812:21:21:-;;;-1:-1:-1;;;;;812:21:21;;:::o;604:18::-;;;;;;:::o;685:45::-;;;;;;;;;;;;;:::o;1730:159::-;1805:12;1796:5;;;;:21;;;;;;;;;1788:30;;;;;;-1:-1:-1;;;;;1848:19:21;;;;;;:9;:19;;;;;;:34;;1872:9;1848:34;:23;:34;:::i;:::-;-1:-1:-1;;;;;1826:19:21;;;;;;;:9;:19;;;;;:56;1730:159::o;2342:290::-;2432:22;2408:15;2399:5;;;;:24;;;;;;;;;2391:33;;;;;;-1:-1:-1;;;;;;2457:19:21;;;;;;:9;:19;;;;;;;2492:18;;2484:27;;;;;;-1:-1:-1;;;;;2519:19:21;;2541:1;2519:19;;;:9;:19;;;;;;:23;;;;2550:33;;;;;2568:14;;2550:33;;;;;;;;;;;;;;;;;;;;;;;;;2600:8;-1:-1:-1;;;;;2591:34:21;;2610:14;2591:34;;;;;;;;;;;;;;2342:290;;:::o;2155:134::-;2214:12;2205:5;;;;:21;;;;;;;;;2197:30;;;;;;2235:5;:23;;-1:-1:-1;;2235:23:21;2243:15;2235:23;;;2266:16;;;;;;;;;;2155:134::o;1939:152::-;1990:12;1981:5;;;;:21;;;;;;;;;1973:30;;;;;;2011:5;:20;;-1:-1:-1;;2011:20:21;2019:12;2011:20;;;2039:8;;;;;;;;;;2055:6;;-1:-1:-1;;;;;2055:6:21;;;;2071:4;:12;;2055:29;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;680:133:39;742:7;769:5;;;787:6;;;;780:14;;;;807:1;680:133;-1:-1:-1;;;680:133:39:o",
+  "source": "pragma solidity ^0.4.17;\n\n\nimport './RefundVault.sol';\n\n\n// mock class using RefundVault\ncontract RefundVaultMock is RefundVault {\n\n  function RefundVaultMock(address _escrow) public \n    RefundVault(_escrow)\n  {\n  }\n\n    function closeVault() public {\n      super.close();\n    }\n\n    function refundVault() public {\n      super.enableRefunds();\n    }\n}\n\n\n",
+  "sourcePath": "/home/tavit/Work/dapp/vmt/contracts/RefundVaultMock.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/home/tavit/Work/dapp/vmt/contracts/RefundVaultMock.sol",
+      "exportedSymbols": {
+        "RefundVaultMock": [
+          2998
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".17"
+          ]
+        },
+        "id": 2967,
+        "name": "PragmaDirective",
+        "src": "0:24:22"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 2966,
+          "absolutePath": "/home/tavit/Work/dapp/vmt/contracts/RefundVault.sol",
+          "file": "./RefundVault.sol",
+          "scope": 2999,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 2968,
+        "name": "ImportDirective",
+        "src": "27:27:22"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            2965
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            2998,
+            2965
+          ],
+          "name": "RefundVaultMock",
+          "scope": 2999
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "RefundVault",
+                  "referencedDeclaration": 2965,
+                  "type": "contract RefundVault"
+                },
+                "id": 2969,
+                "name": "UserDefinedTypeName",
+                "src": "117:11:22"
+              }
+            ],
+            "id": 2970,
+            "name": "InheritanceSpecifier",
+            "src": "117:11:22"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "name": "RefundVaultMock",
+              "payable": false,
+              "scope": 2998,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_escrow",
+                      "scope": 2979,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 2971,
+                        "name": "ElementaryTypeName",
+                        "src": "159:7:22"
+                      }
+                    ],
+                    "id": 2972,
+                    "name": "VariableDeclaration",
+                    "src": "159:15:22"
+                  }
+                ],
+                "id": 2973,
+                "name": "ParameterList",
+                "src": "158:17:22"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2977,
+                "name": "ParameterList",
+                "src": "211:0:22"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2965,
+                      "type": "type(contract RefundVault)",
+                      "value": "RefundVault"
+                    },
+                    "id": 2974,
+                    "name": "Identifier",
+                    "src": "188:11:22"
+                  },
+                  {
+                    "attributes": {
+                      "argumentTypes": null,
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 2972,
+                      "type": "address",
+                      "value": "_escrow"
+                    },
+                    "id": 2975,
+                    "name": "Identifier",
+                    "src": "200:7:22"
+                  }
+                ],
+                "id": 2976,
+                "name": "ModifierInvocation",
+                "src": "188:20:22"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2978,
+                "name": "Block",
+                "src": "211:5:22"
+              }
+            ],
+            "id": 2979,
+            "name": "FunctionDefinition",
+            "src": "134:82:22"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "closeVault",
+              "payable": false,
+              "scope": 2998,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2980,
+                "name": "ParameterList",
+                "src": "241:2:22"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2981,
+                "name": "ParameterList",
+                "src": "251:0:22"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            null
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                null
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "close",
+                              "referencedDeclaration": 2903,
+                              "type": "function ()"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 6614,
+                                  "type": "contract super RefundVaultMock",
+                                  "value": "super"
+                                },
+                                "id": 2982,
+                                "name": "Identifier",
+                                "src": "259:5:22"
+                              }
+                            ],
+                            "id": 2984,
+                            "name": "MemberAccess",
+                            "src": "259:11:22"
+                          }
+                        ],
+                        "id": 2985,
+                        "name": "FunctionCall",
+                        "src": "259:13:22"
+                      }
+                    ],
+                    "id": 2986,
+                    "name": "ExpressionStatement",
+                    "src": "259:13:22"
+                  }
+                ],
+                "id": 2987,
+                "name": "Block",
+                "src": "251:28:22"
+              }
+            ],
+            "id": 2988,
+            "name": "FunctionDefinition",
+            "src": "222:57:22"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "refundVault",
+              "payable": false,
+              "scope": 2998,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2989,
+                "name": "ParameterList",
+                "src": "305:2:22"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2990,
+                "name": "ParameterList",
+                "src": "315:0:22"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            null
+                          ],
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                null
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "enableRefunds",
+                              "referencedDeclaration": 2922,
+                              "type": "function ()"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 6614,
+                                  "type": "contract super RefundVaultMock",
+                                  "value": "super"
+                                },
+                                "id": 2991,
+                                "name": "Identifier",
+                                "src": "323:5:22"
+                              }
+                            ],
+                            "id": 2993,
+                            "name": "MemberAccess",
+                            "src": "323:19:22"
+                          }
+                        ],
+                        "id": 2994,
+                        "name": "FunctionCall",
+                        "src": "323:21:22"
+                      }
+                    ],
+                    "id": 2995,
+                    "name": "ExpressionStatement",
+                    "src": "323:21:22"
+                  }
+                ],
+                "id": 2996,
+                "name": "Block",
+                "src": "315:36:22"
+              }
+            ],
+            "id": 2997,
+            "name": "FunctionDefinition",
+            "src": "285:66:22"
+          }
+        ],
+        "id": 2998,
+        "name": "ContractDefinition",
+        "src": "89:264:22"
+      }
+    ],
+    "id": 2999,
+    "name": "SourceUnit",
+    "src": "0:356:22"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2017-12-07T19:38:05.896Z"
+}

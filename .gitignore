@@ -1,0 +1,11 @@
+*.[oa]
+*.so
+*.lo
+*.la
+*.gem
+*.log
+*.scan
+*.gz
+*~
+node_modules/*
+

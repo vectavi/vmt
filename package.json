@@ -1,0 +1,27 @@
+{
+  "name": "vectavi-ico-token",
+  "version": "0.0.1",
+  "description": "",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server",
+    "test": "mocha"
+  },
+  "author": "Tavit Ohanian",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^2.0.1",
+    "mocha": "^3.5.3",
+    "truffle-contract": "^3.0.0",
+    "truffle-hdwallet-provider": "0.0.3",
+    "zeppelin-solidity": "^1.2.0"
+  }
+}

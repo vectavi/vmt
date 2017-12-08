@@ -1,0 +1,284 @@
+{
+  "contractName": "ReentrancyAttack",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "data",
+          "type": "bytes4"
+        }
+      ],
+      "name": "callSender",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b60db8061001d6000396000f300606060405263ffffffff60e060020a6000350416630a2df1ed8114602257600080fd5b3415602c57600080fd5b60577fffffffff00000000000000000000000000000000000000000000000000000000600435166059565b005b73ffffffffffffffffffffffffffffffffffffffff331660e060020a82046040518163ffffffff1660e060020a02815260040160006040518083038160008761646e5a03f192505050151560ac57600080fd5b505600a165627a7a72305820410699fa68c74a746eeefc2503a9e43982ff75b698bf6fd99d7a79429f7a707a0029",
+  "deployedBytecode": "0x606060405263ffffffff60e060020a6000350416630a2df1ed8114602257600080fd5b3415602c57600080fd5b60577fffffffff00000000000000000000000000000000000000000000000000000000600435166059565b005b73ffffffffffffffffffffffffffffffffffffffff331660e060020a82046040518163ffffffff1660e060020a02815260040160006040518083038160008761646e5a03f192505050151560ac57600080fd5b505600a165627a7a72305820410699fa68c74a746eeefc2503a9e43982ff75b698bf6fd99d7a79429f7a707a0029",
+  "sourceMap": "26:173:19:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:173:19:-;;;;-1:-1:-1;;;26:173:19;;;;;;;;;;;;57:139;;;;;;;;;;;;;;;;;;;169:15;:10;:15;-1:-1:-1;;;169:21:19;;;;;;;-1:-1:-1;;;169:21:19;;;;;;;;;;;;;;;;;;;;;;161:30;;;;;;;;57:139;:::o",
+  "source": "pragma solidity ^0.4.11;\n\ncontract ReentrancyAttack {\n\n  function callSender(bytes4 data) public {\n    //if(!msg.sender.call(data)) {\n    //  throw;\n    //}\n    require(msg.sender.call(data));\n  }\n\n}\n",
+  "sourcePath": "/home/tavit/Work/dapp/vmt/contracts/ReentrancyAttack.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/home/tavit/Work/dapp/vmt/contracts/ReentrancyAttack.sol",
+      "exportedSymbols": {
+        "ReentrancyAttack": [
+          2682
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".11"
+          ]
+        },
+        "id": 2667,
+        "name": "PragmaDirective",
+        "src": "0:24:19"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            2682
+          ],
+          "name": "ReentrancyAttack",
+          "scope": 2683
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "callSender",
+              "payable": false,
+              "scope": 2682,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "data",
+                      "scope": 2681,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes4",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes4",
+                          "type": "bytes4"
+                        },
+                        "id": 2668,
+                        "name": "ElementaryTypeName",
+                        "src": "77:6:19"
+                      }
+                    ],
+                    "id": 2669,
+                    "name": "VariableDeclaration",
+                    "src": "77:11:19"
+                  }
+                ],
+                "id": 2670,
+                "name": "ParameterList",
+                "src": "76:13:19"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 2671,
+                "name": "ParameterList",
+                "src": "97:0:19"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 6543,
+                              "type": "function (bool) pure",
+                              "value": "require"
+                            },
+                            "id": 2672,
+                            "name": "Identifier",
+                            "src": "161:7:19"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "bool",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes4",
+                                      "typeString": "bytes4"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "call",
+                                  "referencedDeclaration": null,
+                                  "type": "function () payable returns (bool)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "sender",
+                                      "referencedDeclaration": null,
+                                      "type": "address"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 6525,
+                                          "type": "msg",
+                                          "value": "msg"
+                                        },
+                                        "id": 2673,
+                                        "name": "Identifier",
+                                        "src": "169:3:19"
+                                      }
+                                    ],
+                                    "id": 2674,
+                                    "name": "MemberAccess",
+                                    "src": "169:10:19"
+                                  }
+                                ],
+                                "id": 2675,
+                                "name": "MemberAccess",
+                                "src": "169:15:19"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2669,
+                                  "type": "bytes4",
+                                  "value": "data"
+                                },
+                                "id": 2676,
+                                "name": "Identifier",
+                                "src": "185:4:19"
+                              }
+                            ],
+                            "id": 2677,
+                            "name": "FunctionCall",
+                            "src": "169:21:19"
+                          }
+                        ],
+                        "id": 2678,
+                        "name": "FunctionCall",
+                        "src": "161:30:19"
+                      }
+                    ],
+                    "id": 2679,
+                    "name": "ExpressionStatement",
+                    "src": "161:30:19"
+                  }
+                ],
+                "id": 2680,
+                "name": "Block",
+                "src": "97:99:19"
+              }
+            ],
+            "id": 2681,
+            "name": "FunctionDefinition",
+            "src": "57:139:19"
+          }
+        ],
+        "id": 2682,
+        "name": "ContractDefinition",
+        "src": "26:173:19"
+      }
+    ],
+    "id": 2683,
+    "name": "SourceUnit",
+    "src": "0:200:19"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2017-12-07T19:38:05.895Z"
+}
